@@ -33,5 +33,5 @@ data_selected<-cbind(subject,data_selected)
 #Group data_selected by activity and subject then summarize it with average
 library(reshape2)
 data_melted<-melt(data_selected, id=c("activity","subject"))
-data_summarize<-dcast(data_melted,subject+activity~variable,mean)
+data_summarize<-dcast(data_melted,activity+subject~variable,mean)
 write.table(data_summarize,"tidy.txt",row.names = F,quote = F)
